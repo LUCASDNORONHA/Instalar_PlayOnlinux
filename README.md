@@ -1,4 +1,4 @@
-# 🧾 Instalação do PlayOnLinux no Ubuntu 24.04 via Flatpak (Para versões recentes do kubuntu que ainda não suportam o playonlinux)
+# 🧾 Instalação do PlayOnLinux no Ubuntu 24.04 via Flatpak (Para versões recentes do Kubuntu que ainda não suportam o PlayOnLinux)
 
 O **PlayOnLinux** é uma interface gráfica que facilita a instalação e o gerenciamento de softwares Windows no Linux utilizando o **Wine**.  
 Abaixo está um passo a passo atualizado para instalar o PlayOnLinux via **Flatpak**, ideal para usuários do **Ubuntu 24.04 LTS**, incluindo variantes como **Kubuntu**.
@@ -24,67 +24,65 @@ sudo flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub
 
 ---
 
-## 🧪 3. Instale o PlayOnLinux via Flatpak
+## 🧪 3. Instale o PlayOnLinux (versão antiga compatível) via Flatpak
+
+A versão moderna do PlayOnLinux (`org.phoenicis.playonlinux`) não oferece suporte direto à Steam nem à instalação clássica de jogos como **Morrowind**.  
+Por isso, usamos a **versão antiga (PlayOnLinux 4)**:
 
 ```bash
-flatpak install flathub org.phoenicis.playonlinux -y
+flatpak install flathub com.playonlinux.PlayOnLinux4 -y
 ```
 
 ---
 
 ## ▶️ 4. Execute o PlayOnLinux
 
-Para abrir o programa, execute o comando:
+Para abrir o programa:
 
 ```bash
-flatpak run org.phoenicis.playonlinux
+flatpak run com.playonlinux.PlayOnLinux4
 ```
 
 ---
 
 ## 📍 5. Criar um atalho gráfico no menu do sistema
 
-Após a instalação via Flatpak, o atalho gráfico do PlayOnLinux geralmente **já aparece automaticamente no menu** do seu sistema, na categoria de **Jogos** ou **Acessórios**.
+O atalho do PlayOnLinux 4 geralmente aparece no menu automaticamente.  
+Se **não aparecer**, você pode criá-lo manualmente:
 
-### ❗ Se não aparecer:
+### Criar arquivo `.desktop`
 
-Você pode criar manualmente um atalho `.desktop` com os seguintes passos:
+```bash
+nano ~/.local/share/applications/playonlinux.desktop
+```
 
-1. Crie o arquivo de atalho:
+### Conteúdo do arquivo:
 
-   ```bash
-   nano ~/.local/share/applications/playonlinux.desktop
-   ```
+```ini
+[Desktop Entry]
+Name=PlayOnLinux 4
+Comment=Instale e gerencie aplicativos do Windows com Wine
+Exec=flatpak run com.playonlinux.PlayOnLinux4
+Icon=com.playonlinux.PlayOnLinux4
+Terminal=false
+Type=Application
+Categories=Utility;Game;
+```
 
-2. Cole o conteúdo abaixo no arquivo:
+### Salve e feche o arquivo (`CTRL + O`, `ENTER`, `CTRL + X`)
 
-   ```ini
-   [Desktop Entry]
-   Name=PlayOnLinux
-   Comment=Instale e gerencie aplicativos do Windows com Wine
-   Exec=flatpak run org.phoenicis.playonlinux
-   Icon=org.phoenicis.playonlinux
-   Terminal=false
-   Type=Application
-   Categories=Utility;Game;
-   ```
+### Torne o atalho executável:
 
-3. Salve com `CTRL + O`, depois `ENTER`, e saia com `CTRL + X`.
-
-4. Torne o atalho executável:
-
-   ```bash
-   chmod +x ~/.local/share/applications/playonlinux.desktop
-   ```
-
-Agora o **PlayOnLinux aparecerá no menu de aplicativos**, como qualquer outro programa nativo.
+```bash
+chmod +x ~/.local/share/applications/playonlinux.desktop
+```
 
 ---
 
-## 📎 (Opcional) Criar um alias para facilitar a execução via terminal
+## 📎 (Opcional) Criar um alias para terminal
 
 ```bash
-echo "alias playonlinux='flatpak run org.phoenicis.playonlinux'" >> ~/.bashrc
+echo "alias playonlinux='flatpak run com.playonlinux.PlayOnLinux4'" >> ~/.bashrc
 source ~/.bashrc
 ```
 
@@ -93,14 +91,13 @@ source ~/.bashrc
 ## 🧽 (Opcional) Desinstalar o PlayOnLinux via Flatpak
 
 ```bash
-flatpak uninstall org.phoenicis.playonlinux
+flatpak uninstall com.playonlinux.PlayOnLinux4
 ```
 
 ---
 
 ## ✅ Conclusão
 
-Utilizar o PlayOnLinux via Flatpak garante a **versão mais recente e estável**, com instalação simples e compatível com o Ubuntu 24.04.  
-Com o atalho gráfico, você pode acessar o app de forma prática pelo menu do sistema.
+Usar o **PlayOnLinux 4 via Flatpak** é a melhor opção para quem quer rodar jogos e aplicativos antigos, como o **Morrowind via Steam**, mantendo compatibilidade e estabilidade mesmo nas versões mais recentes do Ubuntu/Kubuntu.
 
 ---
