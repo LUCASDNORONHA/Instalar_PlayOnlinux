@@ -1,4 +1,4 @@
-# 🧾 Instalação do PlayOnLinux no Ubuntu 24.04 via Flatpak
+# 🧾 Instalação do PlayOnLinux no Ubuntu 24.04 via Flatpak (Para versões recentes do kubuntu que ainda não suportam o playonlinux)
 
 O **PlayOnLinux** é uma interface gráfica que facilita a instalação e o gerenciamento de softwares Windows no Linux utilizando o **Wine**.  
 Abaixo está um passo a passo atualizado para instalar o PlayOnLinux via **Flatpak**, ideal para usuários do **Ubuntu 24.04 LTS**, incluindo variantes como **Kubuntu**.
